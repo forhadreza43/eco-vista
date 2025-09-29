@@ -1,0 +1,18 @@
+{
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "tailwindCSS.experimental.configFile": null,
+  "tailwindCSS.includeLanguages": {
+    "plaintext": "html"
+  },
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className",
+    "classList",
+    "ngClass"
+  ],
+  "files.associations": {
+    "*.css": "tailwindcss"
+  }
+}
