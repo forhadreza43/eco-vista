@@ -22,7 +22,7 @@ export default function Layout({
 }) {
   return (
     <div className={`wrapper`}>
-      <Image src={bgImage} alt="Background" className="bg-img" />
+      <Image src={bgImage} alt="Background" className="bg-img" priority />
       <div className="overlay"></div>
 
       <main className="!z-50 w-full mx-auto">

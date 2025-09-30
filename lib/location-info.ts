@@ -59,7 +59,7 @@ export const getResolvedLatLon = async (
   if (lat && lon) return { lat, lon };
   if (location) {
     const resolved = await getLocationLatLon(location);
-    if (resolved)
+    if (resolved && resolved.latitude && resolved.longitude)
       return {
         lat: resolved.latitude.toString(),
         lon: resolved.longitude.toString(),

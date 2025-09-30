@@ -38,6 +38,7 @@ export const getLocation = ()=>{
 
 export const getLocationByName = (name: string) => {
     if(!name) return null;
+    
     return data.find(
         (loc) => loc.location.toLowerCase() === name.toLowerCase()
     ) || {};
