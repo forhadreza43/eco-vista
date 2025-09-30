@@ -6,8 +6,8 @@ export default async function Page({
   params,
   searchParams,
 }: {
-  params: { location: string };
-  searchParams: { latitude: string; longitude: string };
+  params: Promise<{ location: string }>;
+  searchParams: Promise<{ latitude: string; longitude: string }>;
 }) {
   const { latitude, longitude } = await searchParams;
   const { location } = await params;
