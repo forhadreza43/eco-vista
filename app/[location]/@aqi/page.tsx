@@ -1,6 +1,5 @@
 import AQIcomponent from "@/components/AQIcomponent";
 import AQISkeleton from "@/components/skeleton/AQISkeleton";
-import CardSkeleton from "@/components/skeleton/CardSkeleton";
 import NoLocationFound from "@/components/NoLocationFound";
 import { getResolvedLatLon } from "@/lib/location-info";
 import { Suspense } from "react";
