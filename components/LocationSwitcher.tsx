@@ -11,7 +11,7 @@ export default function LocationSwitcher() {
   const [open, setOpen] = useState<boolean>(false);
   const [locations, setLocations] = useState([]);
   const { currentLocation } = useContext(currentLocationContext);
-  console.log("Current Location:", currentLocation);
+  // console.log("Current Location:", currentLocation);
   useEffect(() => {
     async function fetchLocations() {
       const locationData = await getLocationLatLonList();

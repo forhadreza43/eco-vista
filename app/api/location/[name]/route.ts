@@ -3,7 +3,7 @@ import { getLocationByName } from "../location-util";
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { name: string } }
+  { params }: { params: Promise<{ name: string }> }
 ) {
   const { name } = await params;
   const location = await getLocationByName(name);
