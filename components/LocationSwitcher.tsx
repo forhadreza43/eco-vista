@@ -15,7 +15,7 @@ export default function LocationSwitcher() {
   useEffect(() => {
     async function fetchLocations() {
       const locationData = await getLocationLatLonList();
-      setLocations(locationData);
+      setLocations(locationData || []);
     }
     fetchLocations();
   }, []);

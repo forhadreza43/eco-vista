@@ -18,7 +18,7 @@ export const getLocationData = async (lat: string, lon: string) => {
 
 export const getLocationLatLonList = async () => {
   try {
-    const res = await fetch(`http://localhost:3000/api/location`);
+    const res = await fetch(`/api/location`);
     if (!res.ok) throw new Error("Failed to fetch location list");
     const data = await res.json();
     return data;
@@ -35,9 +35,7 @@ export const getLocationLatLonList = async () => {
 export const getLocationLatLon = async (locationName: string) => {
   try {
     // console.log("From util:", locationName);
-    const res = await fetch(
-      `http://localhost:3000/api/location/${locationName}`
-    );
+    const res = await fetch(`/api/location/${locationName}`);
     if (!res.ok) throw new Error("Failed to fetch location");
     const data = await res.json();
     return data;
