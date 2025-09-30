@@ -35,6 +35,7 @@ export default function LocationDetector() {
             height={500}
             width={500}
             className="border rounded-md my-4"
+            unoptimized
           />
           <p className="text-4xl text-center">Detecting Location...</p>
         </>

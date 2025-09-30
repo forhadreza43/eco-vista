@@ -34,6 +34,7 @@ export const getLocationLatLonList = async () => {
 
 export const getLocationLatLon = async (locationName: string) => {
   try {
+    // console.log("From util:", locationName);
     const res = await fetch(
       `http://localhost:3000/api/location/${locationName}`
     );
@@ -47,5 +48,21 @@ export const getLocationLatLon = async (locationName: string) => {
       console.error(error);
     }
     return null;
+  }
+};
+
+export const getResolvedLatLon = async (
+  location: string,
+  lat: string,
+  lon: string
+) => {
+  if (lat && lon) return { lat, lon };
+  if (location) {
+    const resolved = await getLocationLatLon(location);
+    if (resolved)
+      return {
+        lat: resolved.latitude.toString(),
+        lon: resolved.longitude.toString(),
+      };
   }
 };

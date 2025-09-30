@@ -11,7 +11,7 @@ export default async function TemperatureComponent({
   lon: string;
 }) {
   const tempdata = await getTemperatureData(lat, lon);
-  console.log(tempdata);
+  // console.log(tempdata);
   return (
     <Card>
       <h6 className="feature-name">Current Temperature</h6>

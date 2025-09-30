@@ -12,7 +12,7 @@ export default async function WeatherComponent({
   lon: string;
 }) {
   const weatherData = await getWeatherData(lat, lon);
-    console.log("Weather Data:", weatherData);
+  // console.log("Weather Data:", weatherData);
 
   return (
     <Card>

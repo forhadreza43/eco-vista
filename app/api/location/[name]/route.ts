@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getLocationByName } from "../location-util";
 
-export function GET(
+export async function GET(
   request: NextRequest,
   { params }: { params: { name: string } }
 ) {
-  const { name } = params;
-  const location = getLocationByName(name);
+  const { name } = await params;
+  const location = await getLocationByName(name);
   if (!location)
     return NextResponse.json({ error: "Location not found" }, { status: 404 });
   return NextResponse.json(location);

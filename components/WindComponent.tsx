@@ -10,8 +10,9 @@ export default async function WindComponent({
   lat: string;
   lon: string;
 }) {
+  // console.log("Wind client:", lat, lon);
   const windData = await getWindData(lat, lon);
-  console.log("Wind Data:", windData);
+  // console.log("Wind Data:", windData);
   return (
     <Card>
       <h6 className="feature-name">Wind</h6>
