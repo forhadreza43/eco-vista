@@ -30,5 +30,5 @@ body {
   }
 }
 .feature-title {
-  @apply text-2xl font-bold text-white lg:text-[28px];
+  @apply text-xl font-bold text-white lg:text-[28px];
 }
