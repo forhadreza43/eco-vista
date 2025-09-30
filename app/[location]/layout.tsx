@@ -26,7 +26,7 @@ export default function Layout({
       <div className="overlay"></div>
 
       <main className="!z-50 w-full mx-auto">
-        <div className="container mx-auto">
+        <div className="container mx-auto *:px-4">
           <div className="grid grid-cols-12 gap-y-8 py-16 lg:gap-8 2xl:gap-20 2xl:py-20">
             {children}
             {aqi}

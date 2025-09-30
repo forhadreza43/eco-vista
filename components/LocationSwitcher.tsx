@@ -1,15 +1,17 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import linkIcon from "@/public/assets/icons/link.svg";
 import Image from "next/image";
 import { getLocationLatLonList } from "@/lib/location-info";
 import { Location } from "@/utils/defination";
 import Link from "next/link";
+import { currentLocationContext } from "@/app/context/current-location";
 
 export default function LocationSwitcher() {
   const [open, setOpen] = useState<boolean>(false);
   const [locations, setLocations] = useState([]);
-
+  const { currentLocation } = useContext(currentLocationContext);
+  console.log("Current Location:", currentLocation);
   useEffect(() => {
     async function fetchLocations() {
       const locationData = await getLocationLatLonList();
@@ -29,6 +31,13 @@ export default function LocationSwitcher() {
             role="list"
             className="divide-y divide-gray-100 [&>*]:py-2 [&>li]:cursor-pointer"
           >
+            <li>
+              <Link
+                href={`/current?latitude=${currentLocation?.latitude}&longitude=${currentLocation?.longitude}`}
+              >
+                Current
+              </Link>
+            </li>
             {locations.length > 0 &&
               locations.map((loc: Location) => (
                 <li key={loc.location}>

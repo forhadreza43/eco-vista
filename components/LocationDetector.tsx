@@ -1,29 +1,27 @@
 "use client";
 
+import { currentLocationContext } from "@/app/context/current-location";
 import Image from "next/image";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 export default function LocationDetector() {
   const [loading, setLoading] = useState<boolean>(false);
   const searchParams = useSearchParams();
   const pathName = usePathname();
   const router = useRouter();
+  const { currentLocation } = useContext(currentLocationContext);
 
   useEffect(() => {
     setLoading(true);
     const params = new URLSearchParams(searchParams);
-
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        const { latitude, longitude } = position.coords;
-        params.set("latitude", latitude.toString());
-        params.set("longitude", longitude.toString());
-        setLoading(false);
-        router.push(`/current?${params.toString()}`);
-      });
+    if (currentLocation) {
+      params.set("latitude", currentLocation.latitude.toString());
+      params.set("longitude", currentLocation.longitude.toString());
+      setLoading(false);
+      router.push(`/current?${params.toString()}`);
     }
-  }, [pathName, router, searchParams]);
+  }, [currentLocation, pathName, router, searchParams]);
 
   return (
     <div className="flex flex-col justify-center items-center h-screen bg-slate-700 text-white">
